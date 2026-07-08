@@ -1,0 +1,138 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "A Roblox user account synchronized in Xexam",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique Roblox User ID prefixed with roblox:"
+        },
+        "username": {
+          "type": "string",
+          "description": "Roblox username"
+        },
+        "displayName": {
+          "type": "string",
+          "description": "Roblox display name"
+        },
+        "avatarUrl": {
+          "type": "string",
+          "description": "Roblox avatar thumbnail image URL"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Account registration timestamp"
+        }
+      },
+      "required": ["id", "username", "displayName", "createdAt"]
+    },
+    "Exam": {
+      "title": "Exam",
+      "description": "An exam form created by an exam owner",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique 6-character uppercase code (e.g. ADKRF) used as the exam identifier"
+        },
+        "title": {
+          "type": "string",
+          "description": "Title of the exam form"
+        },
+        "description": {
+          "type": "string",
+          "description": "Optional description outlining guidelines"
+        },
+        "creatorId": {
+          "type": "string",
+          "description": "Roblox User ID of the creator"
+        },
+        "creatorUsername": {
+          "type": "string",
+          "description": "Roblox username of the creator"
+        },
+        "questions": {
+          "type": "array",
+          "description": "List of questions in the exam template"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Date and time the exam was created"
+        },
+        "isActive": {
+          "type": "boolean",
+          "description": "Whether the exam is currently open for responses"
+        }
+      },
+      "required": ["id", "title", "creatorId", "creatorUsername", "questions", "createdAt", "isActive"]
+    },
+    "Submission": {
+      "title": "Submission",
+      "description": "An exam response submitted by a responder",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique UUID for the submission"
+        },
+        "examId": {
+          "type": "string",
+          "description": "The 6-character exam ID"
+        },
+        "userId": {
+          "type": "string",
+          "description": "Roblox User ID of the responder"
+        },
+        "username": {
+          "type": "string",
+          "description": "Roblox username of the responder"
+        },
+        "answers": {
+          "type": "array",
+          "description": "Responses aligned to question IDs"
+        },
+        "score": {
+          "type": "number",
+          "description": "Accumulated correct answers score, if applicable"
+        },
+        "totalPoints": {
+          "type": "number",
+          "description": "Sum of total possible points"
+        },
+        "status": {
+          "type": "string",
+          "enum": ["submitted", "graded"],
+          "description": "Status of the evaluation"
+        },
+        "feedback": {
+          "type": "string",
+          "description": "Written feedback from the exam owner"
+        },
+        "submittedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Time of submission"
+        }
+      },
+      "required": ["id", "examId", "userId", "username", "answers", "status", "submittedAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "User profiles"
+    },
+    "/exams/{examId}": {
+      "schema": "Exam",
+      "description": "Exams created by owners"
+    },
+    "/submissions/{submissionId}": {
+      "schema": "Submission",
+      "description": "Responses submitted by users"
+    }
+  }
+}

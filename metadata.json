@@ -1,0 +1,6 @@
+{
+  "name": "Xexam",
+  "description": "Create, distribute, and grade custom exam forms for Roblox users with secure Roblox OAuth login and sleek glassmorphic themes.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

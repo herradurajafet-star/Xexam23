@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Outfit", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+/* Light theme overrides */
+.light-theme {
+  background-color: #f6f6f9 !important;
+  color: #1e293b !important;
+}
+
+.light-theme .bg-\[\#0a0a0a\] {
+  background-color: #f6f6f9 !important;
+}
+
+.light-theme .bg-\[\#111111\] {
+  background-color: #ffffff !important;
+  border-color: #e2e8f0 !important;
+}
+
+.light-theme .bg-\[\#1a1a1a\] {
+  background-color: #ffffff !important;
+  border-color: #e2e8f0 !important;
+}
+
+.light-theme .bg-\[\#0d0d0d\] {
+  background-color: #f1f5f9 !important;
+  border-color: #cbd5e1 !important;
+}
+
+.light-theme .bg-glass {
+  background-color: #ffffff !important;
+  border-color: #e2e8f0 !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04) !important;
+}
+
+.light-theme .bg-glass-card {
+  background-color: #ffffff !important;
+  border-color: #e2e8f0 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03) !important;
+}
+
+.light-theme .bg-glass-input {
+  background-color: #f1f5f9 !important;
+  border-color: #cbd5e1 !important;
+  color: #0f172a !important;
+}
+
+.light-theme .text-white {
+  color: #0f172a !important;
+}
+
+.light-theme .text-gray-200 {
+  color: #334155 !important;
+}
+
+.light-theme .text-gray-300 {
+  color: #475569 !important;
+}
+
+.light-theme .text-gray-400 {
+  color: #475569 !important;
+}
+
+.light-theme .text-gray-500 {
+  color: #64748b !important;
+}
+
+.light-theme .border-\[\#2a2a2a\] {
+  border-color: #e2e8f0 !important;
+}
+
+.light-theme .border-\[\#333\] {
+  border-color: #cbd5e1 !important;
+}
+
+.light-theme .border-\[\#333333\] {
+  border-color: #cbd5e1 !important;
+}
+
+.light-theme .bg-\[\#222222\] {
+  background-color: #e2e8f0 !important;
+  color: #334155 !important;
+  border-color: #cbd5e1 !important;
+}
+
+.light-theme .bg-\[\#3a3a3a\] {
+  background-color: #cbd5e1 !important;
+  color: #0f172a !important;
+  border-color: #94a3b8 !important;
+}
+
+.light-theme .fill-white {
+  fill: #0f172a !important;
+}
+
+.light-theme .text-gray-600 {
+  color: #94a3b8 !important;
+}
+
+.light-theme .hover\:border-\[\#444\]:hover {
+  border-color: #94a3b8 !important;
+}
+
+.light-theme input, .light-theme textarea, .light-theme select {
+  color: #0f172a !important;
+}
+
+.light-theme ::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+.light-theme ::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+}
+
+.light-theme ::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Custom Professional Polish styling */
+@layer utilities {
+  .bg-glass {
+    background-color: #141414; /* Premium dark grey container */
+    border: 1px solid #2a2a2a;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.75);
+  }
+  
+  .bg-glass-card {
+    background-color: #1a1a1a; /* Solid card element */
+    border: 1px solid #333333;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+  }
+
+  .bg-glass-input {
+    background-color: #0a0a0a; /* Deep black input field background */
+    border: 1px solid #2a2a2a;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.8);
+  }
+
+  .bg-glass-input:focus {
+    border-color: #444444;
+    box-shadow: 
+      0 0 0 2px rgba(255, 255, 255, 0.05),
+      inset 0 2px 4px rgba(0, 0, 0, 0.8);
+  }
+
+  .glass-shine {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .glass-shine::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -60%;
+    width: 30%;
+    height: 200%;
+    background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.03) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    transform: rotate(30deg);
+    transition: all 0.6s ease;
+  }
+
+  .glass-shine:hover::after {
+    left: 120%;
+  }
+}
+
+/* Custom scrollbar to match dark themes */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0d0e11;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #25262b;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #313238;
+}
